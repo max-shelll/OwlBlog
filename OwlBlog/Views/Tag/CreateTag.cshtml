@@ -1,0 +1,18 @@
+﻿@model OwlBlog.DAL.Models.Request.Tags.TagCreateRequest
+
+<div class="container-page">
+    <h2 class="title-margin">Добавление тега</h2>
+    <form method="post" asp-controller="Tag" asp-action="CreateTag"> <div asp-validation-summary="All" class="text-danger"></div>
+        <div style="margin-bottom: 5px">
+            <label asp-for="Name"></label><br />
+            <input class="form-control" asp-for="Name" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div>
+            <input class="btn btn-sm btn-primary" type="submit" value="Создать" />
+        </div>
+        <p>
+            <a method="get" asp-controller="Tag" asp-action="GetTags">Перейти к списку всех тегов </a>
+        </p>
+    </form>
+</div>

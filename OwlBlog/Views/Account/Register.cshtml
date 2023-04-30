@@ -1,0 +1,41 @@
+﻿@model OwlBlog.DAL.Models.Request.Users.RegisterRequest
+
+<div class="container-page">
+    <h2 class="title-margin">Регистрация пользователя</h2>
+    <form method="post" asp-controller="Account" asp-action="Register"> <div asp-validation-summary="All" class="text-danger"></div>
+        <div>
+            <label asp-for="FirstName">Имя</label><br />
+            <input class="form-control" asp-for="FirstName" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="LastName">Фамилия</label><br />
+            <input class="form-control" asp-for="LastName" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="UserName">Никнейм</label><br />
+            <input class="form-control" asp-for="UserName" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Email">Почта</label><br />
+            <input class="form-control" asp-for="Email" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Password">Пароль</label><br />
+            <input class="form-control" asp-for="Password" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="PasswordReg">Пароль</label><br />
+            <input class="form-control" asp-for="PasswordReg" />
+            <span asp-validation-for="PasswordReg" class="text-danger"></span>
+        </div>
+        <div>
+            <p></p>
+            <input class="btn btn-sm btn-primary" type="submit" value="Зарегистрироваться" />
+        </div>
+    </form>
+</div>

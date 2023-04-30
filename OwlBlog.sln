@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwlBlog", "OwlBlog\OwlBlog.csproj", "{AA57C48A-8F6A-4EA5-86C3-5C1E434AEAF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwlBlog.API", "OwlBlog.API\OwlBlog.API.csproj", "{6756AE68-7B22-41B3-9401-C9329F4159E7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA57C48A-8F6A-4EA5-86C3-5C1E434AEAF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA57C48A-8F6A-4EA5-86C3-5C1E434AEAF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA57C48A-8F6A-4EA5-86C3-5C1E434AEAF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA57C48A-8F6A-4EA5-86C3-5C1E434AEAF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6756AE68-7B22-41B3-9401-C9329F4159E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6756AE68-7B22-41B3-9401-C9329F4159E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6756AE68-7B22-41B3-9401-C9329F4159E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6756AE68-7B22-41B3-9401-C9329F4159E7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E8578AAB-3A7D-452D-8821-0DD656155C2A}
+	EndGlobalSection
+EndGlobal

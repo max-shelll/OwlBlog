@@ -1,0 +1,23 @@
+﻿@model OwlBlog.DAL.Models.Request.Roles.RoleCreateRequest
+
+<div class="container-page">
+    <h2 class="title-margin">Добавление роли</h2>
+    <form method="post" asp-controller="Role" asp-action="CreateRole"> <div asp-validation-summary="All" class="text-danger"></div>
+        <div style="margin-bottom: 5px">
+            <label asp-for="Name"></label><br />
+            <input class="form-control" asp-for="Name" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div style="margin-bottom: 5px">
+            <label asp-for="SecurityLvl"></label><br />
+            <input class="form-control" asp-for="SecurityLvl" />
+            <span asp-validation-for="SecurityLvl" class="text-danger"></span>
+        </div>
+        <div>
+            <input class="btn btn-sm btn-primary" type="submit" value="Создать" />
+        </div>
+        <p>
+            <a method="get" asp-controller="Role" asp-action="GetRoles">Перейти к списку всех ролей </a>
+        </p>
+    </form>
+</div>

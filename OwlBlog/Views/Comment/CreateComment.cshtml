@@ -1,0 +1,28 @@
+﻿@model OwlBlog.DAL.Models.Request.Comments.CommentCreateRequest
+
+<div class="container-page">
+    <h2 class="title-margin">Добавление комментария</h2>
+    <form method="post" asp-controller="Comment" asp-action="CreateComment" asp-route-postId="@Model.PostId"> <div asp-validation-summary="All" class="text-danger"></div>
+        <div style="margin-bottom: 5px">
+            <label asp-for="Title"></label><br />
+            <input class="form-control" asp-for="Title" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div style="margin-bottom: 5px">
+            <label asp-for="Description"></label><br />
+            <input class="form-control" asp-for="Description" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div style="margin-bottom: 5px">
+            <label asp-for="Author"></label><br />
+            <input class="form-control" asp-for="Author" />
+            <span asp-validation-for="Author" class="text-danger"></span>
+        </div>
+        <div>
+            <input class="btn btn-sm btn-primary" type="submit" value="Создать" />
+        </div>
+        <p>
+            <a method="get" asp-controller="Post" asp-action="GetPosts">Перейти к списку всех статей </a>
+        </p>
+    </form>
+</div>

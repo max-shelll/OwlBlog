@@ -1,0 +1,46 @@
+﻿@using OwlBlog.DAL.Models.Response.Posts;
+@model Post
+
+<div class="card w-75">
+    <h1 class="card-title">Title: @Model.Title</h1>
+    @{
+        <div>
+            <h6>Tags:</h6>
+            @foreach (var tag in Model.Tags)
+            {
+                <span class="badge rounded-pill text-bg-success" style="color:green; display:inline;">@tag.Name</span>
+            }
+        </div>
+    }
+    <p>Body: @Model.Body</p>
+    <h7>Author: @Model.AuthorId</h7>
+    <p></p>
+    <p></p>
+</div>
+    @{
+        <div>
+            <a class="btn btn-outline-secondary" method="get" asp-controller="Comment" asp-action="CreateComment" asp-route-postId="@Model.Id">Добавить комментарий</a>
+        </div>
+        <p></p>
+        if (Model.Comments.Count() == 0)
+        {
+            <h5 style="color: gray;">Коментарии отсутствуют</h5>
+        }
+        else
+        {
+            foreach (var comment in Model.Comments)
+            {
+                <div class="card w-75">
+                <h6 class="card-title">@comment.Title</h6>
+                <p>@comment.Body</p>
+                <h7>Author: @comment.Author</h7>
+                @if (User.IsInRole("Администратор") || User.Identity.Name == comment.realAuthorName)
+                {
+                    <p>Author real name: @comment.realAuthorName</p>
+                    <a class="btn btn-outline-info button" method="get" asp-controller="Comment" asp-action="EditComment" asp-route-id="@comment.Id">Редактировать</a>
+                    <a class="btn btn-outline-danger button" method="post" asp-controller="Comment" asp-action="RemoveComment" asp-route-id="@comment.Id">Удалить</a>
+                }
+                </div>
+            }
+        }
+    }

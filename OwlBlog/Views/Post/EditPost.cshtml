@@ -1,0 +1,44 @@
+﻿@model OwlBlog.DAL.Models.Request.Posts.PostEditViewModel
+
+<div class="container-page">
+    <h2 class="title-margin">Редактирование статьи</h2>
+    <form method="post" asp-controller="Post" asp-action="EditPost"> <div asp-validation-summary="All" class="text-danger"></div>
+        <div style="margin-bottom: 5px">
+            <table>
+			<label>Роли</label>
+            @if (Model is not null)
+            {
+                @for (int i = 0; i < Model.Tags.Count; i++)
+			    {
+				    if(i % 3 == 0)
+				    {
+					    @:<tr></tr>
+				    }
+				    <td>
+					    @Html.CheckBoxFor(model => model.Tags[i].IsSelected)
+					    <lable class="tag-margin">@Model.Tags[i].Name</lable>
+					    @Html.HiddenFor(model => model.Tags[i].Id)
+				    </td>
+			    }
+            }
+		</table>
+        <div style="margin-bottom: 5px">
+            <label asp-for="Title"></label><br />
+            <input class="form-control" asp-for="Title" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+            <input class="form-control" asp-for="id" hidden/>
+        </div>
+        <div style="margin-bottom: 5px">
+            <label asp-for="Body"></label><br />
+            <input class="form-control" asp-for="Body" />
+            <span asp-validation-for="Body" class="text-danger"></span>
+            <input class="form-control" asp-for="id" hidden/>
+        </div>
+        <div>
+            <input class="btn btn-sm btn-primary" type="submit" value="Сохранить"/>
+        </div>
+        <p>
+            <a method="get" asp-controller="Post" asp-action="GetPosts">Перейти к списку всех статей </a>
+        </p>
+    </form>
+</div>

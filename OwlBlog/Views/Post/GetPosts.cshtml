@@ -1,0 +1,43 @@
+﻿@using OwlBlog.DAL.Models.Response.Posts;
+@model List<Post>
+
+        @{
+              @if (Model.Count() == 0)
+              {
+                   <h5 class="card-title">Нету данных для отображения</h5>
+                   <h6 class="card-title"><a method="get" asp-controller="Post" asp-action="CreatePost">Добавить статью</a></h6>
+              }
+              else
+              {
+                  <h5 class="card-title">Все статьи</h5>
+                  <h6 class="card-title"><a method="get" asp-controller="Post" asp-action="CreatePost">Добавить статью</a></h6>
+                  foreach (var post in Model)
+                  {
+                      <div class="card w-75">
+                          <div class="card-body">
+                              <h4 class="card-title">@post.Title</h4>
+                              <h5>Теги:</h5>
+                              @foreach (var tag in post.Tags)
+                              {
+                                  <span class="badge rounded-pill text-bg-success" style="color:green">@tag.Name</span>
+                              }
+                              @if (User.IsInRole("Администратор"))
+                              {
+                                <div>
+                                    <a class="btn btn-outline-info button" method="get" asp-controller="Post" asp-action="EditPost" asp-route-id="@post.Id">Редактировать</a>
+                                    <a class="btn btn-outline-danger button" method="post" asp-controller="Post" asp-action="RemovePost" asp-route-id="@post.Id">Удалить</a>
+                                    <a class="btn btn-outline-secondary" method="get" asp-controller="Post" asp-action="ShowPost" asp-route-id="@post.Id">Просмотреть</a>
+                                </div>
+                              }
+                              else
+                              {
+                                <div>
+                                    <a class="btn btn-outline-secondary" method="get" asp-controller="Post" asp-action="ShowPost" asp-route-id="@post.Id">Просмотреть</a>
+                                </div>
+                              }
+                          </div>
+                      </div>
+                      <p></p>
+                  }
+              }
+        }

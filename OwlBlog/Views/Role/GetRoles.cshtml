@@ -1,0 +1,32 @@
+﻿@using OwlBlog.DAL.Models.Response.Roles;
+@model List<Role>
+
+        @{
+              @if (Model.Count() == 0)
+              {
+                   <h5 class="card-title">Нету данных для отображения</h5>
+                   <h6 class="card-title"><a method="get" asp-controller="Role" asp-action="CreateRole">Добавить роль</a></h6>
+              }
+              else
+              {
+                  <h5 class="card-title">Все роли</h5>
+                  <h6 class="card-title"><a method="get" asp-controller="Role" asp-action="CreateRole">Добавить роль</a></h6>
+                  foreach (var role in Model)
+                  {
+                      <div class="card w-75">
+                        <div class="card-body">
+                            <h5 class="card-title">@role.Name</h5>
+                            <h5 class="card-title">Уровень доступа: @role.SecurityLvl</h5>
+                            @if (User.IsInRole("Администратор"))
+                              {
+                                <div>
+                                    <a class="btn btn-outline-info button" method="get" asp-controller="Role" asp-action="EditRole" asp-route-id="@role.Id">Редактировать</a>
+                                    <a class="btn btn-outline-danger button" method="post" asp-controller="Role" asp-action="RemoveRole" asp-route-id="@role.Id">Удалить</a>
+                                </div>
+                              }
+                        </div>
+                      </div>
+                      <p></p>
+                  }
+              }
+        }

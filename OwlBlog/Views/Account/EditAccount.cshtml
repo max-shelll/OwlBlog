@@ -1,0 +1,62 @@
+﻿@model OwlBlog.DAL.Models.Request.Users.UserEditRequest
+
+<div class="container-page">
+    <h2 class="title-margin">Редактирование пользователя</h2>
+    <form method="post" asp-controller="Account" asp-action="EditAccount"> <div asp-validation-summary="All" class="text-danger"></div>
+        <div style="margin-bottom: 5px">
+            <table>
+			<label>Роли</label>
+            @if (Model is not null)
+            {
+                @for (int i = 0; i < Model.Roles.Count; i++)
+			    {
+				    if(i % 3 == 0)
+				    {
+					    @:<tr></tr>
+				    }
+				    <td>
+					    @Html.CheckBoxFor(model => model.Roles[i].IsSelected)
+					    <lable class="tag-margin">@Model.Roles[i].Name</lable>
+					    @Html.HiddenFor(model => model.Roles[i].Id)
+				    </td>
+			    }
+            }
+		</table>
+        <div style="margin-bottom: 5px">
+            <label asp-for="FirstName"></label><br />
+            <input class="form-control" asp-for="FirstName" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+            <input class="form-control" asp-for="Id" hidden/>
+        </div>
+        <div style="margin-bottom: 5px">
+            <label asp-for="LastName"></label><br />
+            <input class="form-control" asp-for="LastName" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+            <input class="form-control" asp-for="Id" hidden/>
+        </div>
+        <div style="margin-bottom: 5px">
+            <label asp-for="UserName"></label><br />
+            <input class="form-control" asp-for="UserName" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+            <input class="form-control" asp-for="Id" hidden/>
+        </div>
+        <div style="margin-bottom: 5px">
+            <label asp-for="Email"></label><br />
+            <input class="form-control" asp-for="Email" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+            <input class="form-control" asp-for="Id" hidden/>
+        </div>
+        <div style="margin-bottom: 5px">
+            <label asp-for="NewPassword"></label><br />
+            <input class="form-control" asp-for="NewPassword" />
+            <span asp-validation-for="NewPassword" class="text-danger"></span>
+            <input class="form-control" asp-for="Id" hidden/>
+        </div>
+        <div>
+            <input class="btn btn-sm btn-primary" type="submit" value="Сохранить"/>
+        </div>
+        <p>
+            <a method="get" asp-controller="Account" asp-action="GetAccounts">Перейти к списку всех пользователей </a>
+        </p>
+    </form>
+</div>

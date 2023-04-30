@@ -1,0 +1,24 @@
+﻿@model OwlBlog.DAL.Models.Request.Users.LoginRequest
+
+<div class="container-page">
+    <h2 class="title-margin">Вход в приложение</h2>
+    <form method="post" asp-controller="Account" asp-action="Login"> <div asp-validation-summary="All" class="text-danger"></div>
+        <div style="margin-bottom: 5px">
+            <label asp-for="Email"></label><br />
+            <input class="form-control" asp-for="Email" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div style="margin-bottom: 5px">
+            <label asp-for="Password"></label><br />
+            <input class="form-control" asp-for="Password" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div style="margin-bottom: 5px">
+            <input class="btn btn-sm btn-primary" type="submit" value="Войти" />
+        </div>
+        <p>
+            Еще нет аккаунта? 
+            <a method="get" asp-controller="Account" asp-action="Register">Регистрация</a>
+        </p>
+    </form>
+</div>
